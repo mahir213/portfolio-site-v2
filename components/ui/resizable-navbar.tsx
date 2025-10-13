@@ -6,6 +6,7 @@ import {
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
+  LayoutGroup,
 } from "framer-motion";
 
 import React, { useRef, useState } from "react";
@@ -117,11 +118,12 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <motion.div
+    <LayoutGroup>
+  <motion.div
+  layout
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2 pointer-events-none",
+        "hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
         className,
       )}
     >
@@ -129,22 +131,22 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          
-          className="pointer-events-auto relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
           key={`link-${idx}`}
           href={item.link}
         >
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-300 dark:bg-neutral-800 pointer-events-none"
+              transition={{ type: "spring", stiffness: 500, damping: 30 }}
+              className="absolute left-0 right-0 top-0 bottom-0 h-full w-full rounded-full bg-gray-300 dark:bg-neutral-800 pointer-events-none"
             />
           )}
           <span className="relative z-20">{item.name}</span>
         </a>
       ))}
-    </motion.div>
+      </motion.div>
+    </LayoutGroup>
   );
 };
 
