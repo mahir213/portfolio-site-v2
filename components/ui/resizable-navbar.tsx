@@ -239,24 +239,26 @@ export const NavbarLogo = () => {
   return (
     <a
       href="#"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
+      className="relative z-20 inline-block px-0 py-0 text-sm font-normal text-black"
+      aria-label="Home"
     >
-      {/* Light logo (visible in light mode) and dark logo (visible in dark mode) */}
       <img
-        src="/assets/logoHM-dark.png"
+        src="/assets/images/logoHM-dark.png"
         alt="logo light"
-        width={80}
-        height={80}
+        width={68}
+        height={68}
         className="block dark:hidden"
       />
       <img
-        src="/assets/logoHM-light.png"
+        src="/assets/images/logoHM-light.png"
         alt="logo dark"
-        width={80}
-        height={80}
+        width={68}
+        height={68}
         className="hidden dark:block"
       />
-      <span className="font-medium text-black dark:text-white">Development</span>
+      <span className="absolute left-[76px] top-1/2 -translate-y-1/2 pointer-events-none font-medium text-black dark:text-white text-sm whitespace-nowrap">
+        Development
+      </span>
     </a>
   );
 };
