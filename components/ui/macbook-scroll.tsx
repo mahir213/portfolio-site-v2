@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { MotionValue, motion, useScroll, useTransform } from "motion/react";
+import React, { useEffect, useRef, useState } from "react";
+import { MotionValue, motion, useScroll, useTransform, useSpring } from "motion/react";
 import { cn } from "@/lib/utils";
 import {
   IconBrightnessDown,
@@ -24,19 +24,22 @@ import { IconCommand } from "@tabler/icons-react";
 import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 
-
 export const MacbookScroll = ({
   src,
   showGradient,
   title,
   badge,
   compact,
+  infoPanel,
+  children,
 }: {
   src?: string;
   showGradient?: boolean;
   title?: string | React.ReactNode | null;
   badge?: React.ReactNode;
   compact?: boolean;
+  infoPanel?: React.ReactNode;
+  children?: React.ReactNode;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -62,38 +65,65 @@ export const MacbookScroll = ({
     [0, 0.3],
     [0.6, isMobile ? 1 : 1.5],
   );
-  const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
+  
+ 
+  const translate = useTransform(scrollYProgress, [0, 0.5], [0, 680]);
+  const springTranslate = useSpring(translate, { damping: 30, stiffness: 170 });
+  
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
+  const infoTranslateX = useTransform(scrollYProgress, [0.18, 0.45], [-80, 0]);
+  const infoOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
+
   const rootClass = compact
-    ? "flex shrink-0 flex-col items-center justify-start py-6 [perspective:800px]"
-    : "flex min-h-[200vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80";
+    ? "relative flex shrink-0 flex-col items-center justify-start overflow-visible py-8 [perspective:800px]"
+    : "relative flex min-h-[150vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start overflow-visible py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80";
+
+  const shouldRenderTitle = title !== null && title !== undefined;
 
   return (
     <div ref={ref} className={rootClass}>
-      <motion.h2
-        style={{
-          translateY: textTransform,
-          opacity: textOpacity,
-        }}
-        className="mb-20 text-center text-3xl font-bold text-neutral-800 dark:text-white"
-      >
-        {title !== undefined ? title : (
-          <span>
-            This Macbook is built with Tailwindcss. <br /> No kidding.
-          </span>
-        )}
-      </motion.h2>
+      {infoPanel && (
+        <motion.div
+          style={{
+            translateX: infoTranslateX,
+            opacity: infoOpacity,
+          }}
+          className="pointer-events-auto absolute right-full top-1/2 hidden w-[18rem] -translate-y-1/2 mr-12 min-[1100px]:flex"
+        >
+          <div className="w-full rounded-2xl border border-slate-200/50 bg-white/80 p-5 shadow-[0_30px_60px_rgba(15,23,42,0.22)] backdrop-blur dark:border-white/10 dark:bg-white/10">
+            {infoPanel}
+          </div>
+        </motion.div>
+      )}
+
+      {shouldRenderTitle && (
+        <motion.h2
+          style={{
+            translateY: textTransform,
+            opacity: textOpacity,
+          }}
+          className="mb-20 text-center text-3xl font-bold text-neutral-800 dark:text-white"
+        >
+          {title !== undefined ? title : (
+            <span>
+              This Macbook is built with Tailwindcss. <br /> No kidding.
+            </span>
+          )}
+        </motion.h2>
+      )}
       {/* Lid */}
       <Lid
         src={src}
         scaleX={scaleX}
         scaleY={scaleY}
         rotate={rotate}
-        translate={translate}
-      />
+        translate={springTranslate}
+      >
+        {children}
+      </Lid>
       {/* Base area */}
       <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200 dark:bg-[#272729]">
         {/* above keyboard bar */}
@@ -128,12 +158,14 @@ export const Lid = ({
   rotate,
   translate,
   src,
+  children,
 }: {
   scaleX: MotionValue<number>;
   scaleY: MotionValue<number>;
   rotate: MotionValue<number>;
   translate: MotionValue<number>;
   src?: string;
+  children?: React.ReactNode;
 }) => {
   return (
     <div className="relative [perspective:800px]">
@@ -168,11 +200,17 @@ export const Lid = ({
         className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
-        <img
-          src={src as string}
-          alt="aceternity logo"
-          className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
-        />
+        {src ? (
+          <img
+            src={src}
+            alt="Macbook preview"
+            className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
+          />
+        ) : children ? (
+          <div className="absolute inset-0 p-2">
+            {children}
+          </div>
+        ) : null}
       </motion.div>
     </div>
   );
