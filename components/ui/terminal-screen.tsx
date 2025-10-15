@@ -12,7 +12,7 @@ interface TerminalLine {
 const terminalContent: TerminalLine[] = [
   { type: "comment", content: "# Welcome to my portfolio", delay: 300, typingSpeed: 50 },
   { type: "command", content: "$ whoami", delay: 800, typingSpeed: 80 },
-  { type: "output", content: "Full-stack developer & designer", delay: 400, typingSpeed: 40 },
+  { type: "output", content: "Full-stack developer based in Bosnia and Herzegovina", delay: 400, typingSpeed: 40 },
   { type: "command", content: "$ ls skills/", delay: 1000, typingSpeed: 80 },
   { type: "output", content: "React.js  Next.js  TypeScript  Tailwind", delay: 400, typingSpeed: 35 },
   { type: "output", content: "Node.js Spring boot Angular   ", delay: 200, typingSpeed: 35 },

@@ -103,7 +103,7 @@ export default function Hero() {
     );
 
     return (
-        <section className="relative w-full overflow-hidden min-h-[940px] sm:min-h-[1000px] lg:min-h-[1120px] xl:min-h-[1200px] 2xl:min-h-[1510px] py-24 sm:py-28 lg:py-32 pb-[calc(10rem-195px)] sm:pb-[calc(12rem-195px)] lg:pb-[calc(14rem-195px)] xl:pb-[calc(16rem-195px)] -mt-2 lg:-mt-16">
+        <section className="relative w-full overflow-hidden min-h-[940px] sm:min-h-[1000px] lg:min-h-[1120px] xl:min-h-[1200px] 2xl:min-h-[1510px] py-24 sm:py-28 lg:py-32 pb-[calc(10rem-95px)] sm:pb-[calc(12rem-195px)] lg:pb-[calc(14rem-195px)] xl:pb-[calc(16rem-195px)] -mt-2 lg:-mt-16">
             {/* layered grid and dot texture background */}
             <GridDotBackground className="absolute inset-0" />
 
@@ -117,7 +117,7 @@ export default function Hero() {
                 <div className="w-full flex flex-col min-[950px]:flex-row items-start min-[950px]:items-start gap-10 min-[950px]:gap-12 lg:gap-16 xl:gap-20 2xl:gap-24">
                     <div className="w-full min-[950px]:w-7/12 xl:w-3/5 flex items-start min-[950px]:justify-start">
                         <div className="w-full max-w-4xl text-left px-2 sm:px-4 min-[950px]:px-0 lg:mt-[40px]" >
-                            <h2 className={`${montserrat.className} text-sm uppercase tracking-widest text-muted-foreground font-medium mb-3`}>Product designer & frontend engineer</h2>
+                            <h2 className={`${montserrat.className} text-sm uppercase tracking-widest text-muted-foreground font-medium mb-3`}>Full-stack developer</h2>
 
                             <h1 className={`${montserrat.className} text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-medium leading-tight mb-5 sm:mt-6`}>
                                 <div className="block">
