@@ -121,14 +121,13 @@
   }
 }
 
-/* Utility to hide scrollbars while preserving scroll behavior */
 @layer utilities {
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   .no-scrollbar::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    display: none;
     width: 0;
     height: 0;
   }
@@ -145,4 +144,18 @@
 
 .animate-blink {
   animation: blink 1s step-end infinite;
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

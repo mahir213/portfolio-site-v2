@@ -108,7 +108,7 @@ export const TerminalScreen = () => {
           <div className="h-3 w-3 rounded-full bg-[#27c93f]" />
         </div>
         <div className="flex-1 text-center text-[#cccccc] text-xs font-medium">
-          terminal — zsh
+          terminal - zsh
         </div>
       </div>
 

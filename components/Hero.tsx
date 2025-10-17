@@ -9,47 +9,41 @@ import { montserrat } from "@/lib/fonts";
 
 export default function Hero() {
     const words = [
-        "modern",
-        "nimble",
-        "bright",
-        "smooth",
-        "fast",
+        "smart",
         "clean",
-        "elegant",
-        
+        "sharp",
+        "sleek",
+        "fresh",
     ];
 
     const heroElements = (
         <motion.div
             initial={{ x: -90, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 150, damping: 25, delay: 0.1 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}
             viewport={{ once: true, amount: 0.15, margin: "0px 0px -250px 0px" }}
             className="relative mt-[110px] min-[950px]:mt-[200px] max-w-xl space-y-8"
         >
-            {/* Featured Build Panel */}
             <div className="rounded-2xl border border-slate-200/60 bg-white/75 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.18)] backdrop-blur-md dark:border-white/10 dark:bg-white/10">
                 <span className={`${montserrat.className} text-[10px] font-semibold uppercase tracking-[0.35em] text-sky-500/80 dark:text-sky-300/70`}>
-                    Featured build
+                    Availability
                 </span>
                 <h3 className={`${montserrat.className} mt-3 text-lg font-semibold text-slate-900 dark:text-white`}>
-                    Revenue analytics workspace
+                    Currently taking on new projects
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-200/70">
-                    High-fidelity dashboard prototype with responsive states, scroll-driven motion, and gradients tuned for high-stakes product demos.
+                    I'm available for freelance work and contract positions. Whether you need a quick prototype or a long-term partnership, let's chat about your project.
                 </p>
                 <div className="mt-4 flex items-center gap-3">
-                    <span className="relative inline-flex h-2.5 w-2.5">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/60"></span>
-                        <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.55)]"></span>
-                    </span>
-                    <span className={`${montserrat.className} text-[11px] font-medium uppercase tracking-[0.22em] text-emerald-500/90`}>
-                        Live preview
-                    </span>
+                    <div className="flex items-center gap-2">
+                        <div className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(52,211,153,0.6)]"></div>
+                        <span className={`${montserrat.className} text-[11px] font-medium text-slate-600 dark:text-slate-300`}>
+                            Open to opportunities
+                        </span>
+                    </div>
                 </div>
             </div>
 
-            {/* Additional Features */}
             <div className="space-y-6">
                 <div className="flex items-start gap-4 group">
                     <div className="flex-shrink-0 mt-1 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400/10 to-indigo-500/10 border border-sky-300/20 shadow-sm group-hover:shadow-md transition-shadow duration-300">
@@ -59,10 +53,10 @@ export default function Hero() {
                     </div>
                     <div>
                         <h4 className={`${montserrat.className} text-base font-semibold text-slate-900 dark:text-white`}>
-                            Rapid prototyping
+                            Move fast
                         </h4>
                         <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-300/80 leading-relaxed">
-                            Transform ideas into interactive prototypes in hours, not weeks. I build with production-ready code from day one.
+                            Speed matters when you're trying to launch. I get things done quickly without cutting corners, so you can start testing your idea with real users sooner.
                         </p>
                     </div>
                 </div>
@@ -75,10 +69,10 @@ export default function Hero() {
                     </div>
                     <div>
                         <h4 className={`${montserrat.className} text-base font-semibold text-slate-900 dark:text-white`}>
-                            Design systems
+                            End-to-end
                         </h4>
                         <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-300/80 leading-relaxed">
-                            Scalable component libraries built with accessibility, consistency, and developer experience at the core.
+                            I do both design and dev, which means fewer handoffs and less confusion. What you see in the mockup is what you'll get in the browser, no surprises.
                         </p>
                     </div>
                 </div>
@@ -91,10 +85,10 @@ export default function Hero() {
                     </div>
                     <div>
                         <h4 className={`${montserrat.className} text-base font-semibold text-slate-900 dark:text-white`}>
-                            Performance-first
+                            Time is everything
                         </h4>
                         <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-300/80 leading-relaxed">
-                            Every animation optimized, every asset compressed. Experiences that feel instant on any device.
+                            Your time matters more than anything. I build sites that load fast and feel responsive because every second counts. No one should wait for your content to appear.
                         </p>
                     </div>
                 </div>
@@ -104,24 +98,21 @@ export default function Hero() {
 
     return (
         <section className="relative w-full overflow-hidden min-h-[940px] sm:min-h-[1000px] lg:min-h-[1120px] xl:min-h-[1200px] 2xl:min-h-[1510px] py-24 sm:py-28 lg:py-32 pb-[calc(10rem-95px)] sm:pb-[calc(12rem-195px)] lg:pb-[calc(14rem-195px)] xl:pb-[calc(16rem-195px)] -mt-2 lg:-mt-16">
-            {/* layered grid and dot texture background */}
             <GridDotBackground className="absolute inset-0" />
 
-            {/* subtle blurred halo to add depth behind the heading */}
             <div className="absolute inset-0 -z-5 flex items-center justify-center pointer-events-none">
-                <div className="w-[590px] h-[590px] rounded-full bg-gradient-to-r from-sky-400/20 via-indigo-400/15 to-transparent blur-2xl mt-[-385px]" />
+                <div className="w-[590px] h-[590px] rounded-full bg-gradient-to-r from-sky-400/20 via-indigo-400/15 to-transparent blur-2xl mt-[-285px] sm:mt-[-335px] lg:mt-[-385px]" />
             </div>
 
             <div className="relative z-20 max-w-6xl xl:max-w-7xl mx-auto px-6 flex items-center justify-center mt-[80px] min-[950px]:mt-[120px]">
-                {/* Responsive layout: horizontal on md+ (text left, macbook right), stacked on small screens */}
                 <div className="w-full flex flex-col min-[950px]:flex-row items-start min-[950px]:items-start gap-10 min-[950px]:gap-12 lg:gap-16 xl:gap-20 2xl:gap-24">
                     <div className="w-full min-[950px]:w-7/12 xl:w-3/5 flex items-start min-[950px]:justify-start">
                         <div className="w-full max-w-4xl text-left px-2 sm:px-4 min-[950px]:px-0 lg:mt-[40px]" >
                             <h2 className={`${montserrat.className} text-sm uppercase tracking-widest text-muted-foreground font-medium mb-3`}>Full-stack developer</h2>
 
-                            <h1 className={`${montserrat.className} text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-medium leading-tight mb-5 sm:mt-6`}>
+                              <h1 className={`${montserrat.className} text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-medium leading-tight mb-5`}>
                                 <div className="block">
-                                    I craft <span className="inline-block">
+                                    I build <span className="inline-block">
                                         <ContainerTextFlip
                                             words={words}
                                             interval={3000}
@@ -130,39 +121,30 @@ export default function Hero() {
                                             className="inline-block"
                                             textClassName={`${montserrat.className} text-sky-500/90 dark:text-sky-400/80 inline-block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium`}
                                         />
-                                    </span> digital products.
+                                    </span> web experiences.
                                 </div>
                             </h1>
 
                             <p className={`${montserrat.className} mt-2 text-base sm:text-lg text-muted-foreground max-w-2xl font-medium`}>
-                                I partner with founders and product teams to merge strategy, design, and engineering into web experiences that feel effortless and ship on schedule.
+                                I work with startups and product teams to turn ideas into polished web apps. From concept to launch, I handle the design and code so your project actually ships.
                             </p>
 
                             <div className="mt-8 flex flex-wrap gap-4 justify-start">
-                                <a
-                                    href="#work"
-                                    className={`${montserrat.className} group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-500 via-sky-600 to-indigo-600 px-6 py-3 font-semibold text-white shadow-[0_14px_32px_rgba(59,130,246,0.35)] transition-all duration-300 hover:shadow-[0_18px_40px_rgba(37,99,235,0.45)]`}
+                                <button
+                                    onClick={() => {
+                                        const contactSection = document.getElementById('contact');
+                                        contactSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }}
+                                    className={`${montserrat.className} group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-sky-500 via-sky-600 to-indigo-600 px-6 py-3 font-semibold text-white shadow-[0_14px_32px_rgba(59,130,246,0.35)] transition-all duration-300 hover:shadow-[0_18px_40px_rgba(37,99,235,0.45)] cursor-pointer`}
                                 >
-                                    See my work
+                                    Contact me
                                     <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-white transition-transform duration-300 group-hover:translate-x-1">
                                         <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 10h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                             <path d="M11 6l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </span>
-                                </a>
-                                <a
-                                    href="#contact"
-                                    className={`${montserrat.className} group inline-flex items-center gap-3 rounded-full border border-slate-200/70 bg-white/80 px-6 py-3 font-semibold text-slate-800 shadow-[0_10px_25px_rgba(15,23,42,0.08)] backdrop-blur transition-all duration-300 hover:border-slate-300 hover:shadow-[0_14px_32px_rgba(15,23,42,0.12)] dark:border-white/10 dark:bg-white/05 dark:text-slate-100`}
-                                >
-                                    Let's talk
-                                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/5 text-slate-700 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-slate-900 dark:bg-white/10 dark:text-slate-100">
-                                        <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M5 10h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M11 6l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </span>
-                                </a>
+                                </button>
                             </div>
 
                             {heroElements}
